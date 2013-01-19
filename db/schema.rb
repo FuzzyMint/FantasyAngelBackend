@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119214251) do
+ActiveRecord::Schema.define(:version => 20130119220647) do
+
+  create_table "investments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "startup_id"
+    t.integer  "amount"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "startups", :force => true do |t|
+    t.integer  "angelListID"
+    t.string   "name"
+    t.string   "logo_url"
+    t.string   "thumb_url"
+    t.text     "product_desc"
+    t.text     "high_concept"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

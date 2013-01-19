@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :token_authenticatable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :investments
+  has_many :investments, :dependent => :destroy
   has_many :startups, :through => :investments
 
   # Setup accessible (or protected) attributes for your model
