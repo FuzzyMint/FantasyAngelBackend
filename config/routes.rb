@@ -4,7 +4,7 @@ FantasyAngelBackend::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :tokens, :only => [:create, :destroy]
-      resources :users, :only => [:index]
+      resources :users, :only => [:index, :show]
     end
   end
   # The priority is based upon order of creation:
