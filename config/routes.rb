@@ -1,12 +1,12 @@
 FantasyAngelBackend::Application.routes.draw do
   devise_for :users
 
-  namespace :api do
-    namespace :v1 do
+#  namespace :api do
+#    namespace :v1 do
       resources :tokens, :only => [:create, :destroy]
       resources :users, :only => [:index, :show]
-    end
-  end
+#    end
+#  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
