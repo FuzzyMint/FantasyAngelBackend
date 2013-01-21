@@ -31,10 +31,13 @@ def create
 
   def index
     @investments = Investment.all
+#    @user = User.find_by_id(@investment.user_id)
+#    @investments.each {|i| @users << User.find_by_id(i.user_id) }
   end
 
   def show
     @investment = Investment.find(params[:id])
+    @user = User.find_by_id(@investment.user_id)
   end
 
 end  
