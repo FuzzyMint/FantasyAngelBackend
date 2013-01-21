@@ -15,7 +15,9 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   def default_values
-    self.balance = 200000
+    if self.balance.nil?
+      self.balance = 200000
+    end
   end
 
 end
