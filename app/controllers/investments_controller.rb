@@ -9,7 +9,7 @@ def create
         render :status=>406, :json=>{:message=>"The request must be json"}
         return
     end
-    
+
     if @investment.amount.nil?
       render :status=>400, :json=>{:message=>"The request must contain an investment amount."}
       return
@@ -26,19 +26,19 @@ def create
     render :status=>200, :json=>{:message=>"Investment Created"}
     return
 
-    #current_user.save!
   end
 
   def index
-    @investments = Investment.all
+    @investments = Investment.find(:all, :order=> 'created_at DESC')
 #    @user = User.find_by_id(@investment.user_id)
 #    @investments.each {|i| @users << User.find_by_id(i.user_id) }
   end
 
   def show
     @investment = Investment.find(params[:id])
-    @user = User.find_by_id(@investment.user_id)
+#    @user = User.find_by_id(@investment.user_id)
+#    @startup = Startup.find_by_id(1)
   end
 
-end  
+end
 

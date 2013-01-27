@@ -1,22 +1,22 @@
-class UsersController  < ApplicationController 
+class UsersController  < ApplicationController
   respond_to :json
-  
+
   def create
     amount = params[:amount]
     password = params[:password]
-    
+
     if request.format != :json
         render :status=>406, :json=>{:message=>"The request must be json"}
         return
     end
-    
-    if email.nil? or password.nil? 
+
+    if email.nil? or password.nil?
       render :status=>400, :json=>{:message=>"The request must contain the user email and password."}
       return
     end
 
     @user=User.find_by_email(email.downcase)
-    
+
     if @user.nil?
       logger.info("User #{email} already exists.")
       render :status=>401, :json=>{:message=>"User #{email} already exists."}
@@ -37,5 +37,4 @@ class UsersController  < ApplicationController
     @user = User.find(params[:id])
   end
 
-end  
-
+end 
